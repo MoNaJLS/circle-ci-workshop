@@ -7,9 +7,12 @@ jobs:
       - checkout
       - run:
           name: Gradle Test
-          command: gradle jar
+          command: gradle test
       - store_test_results:
           path: build/test-results
+       - run:
+          name: Gradle Test
+          command: gradle jar
       - store_artifacts:
-          path: /code/test-results
+          path: build/test-results
           destination: prefix
